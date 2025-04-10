@@ -1,6 +1,6 @@
 <x-app-layout>
     <div class="p-6">
-        <a href="{{ route('properties.create') }}" class="bg-green-500 text-white px-4 py-2 rounded mb-4 inline-block">+ Add Property</a>
+        <a href="{{ env('APP_URL') }}/properties/create" class="bg-green-500 text-white px-4 py-2 rounded mb-4 inline-block">+ Add Property</a>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             @foreach($properties as $property)

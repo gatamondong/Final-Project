@@ -20,14 +20,14 @@
             <nav class="flex items-center justify-end gap-4">
                 @auth
                     <a
-                        href="{{ route('dashboard') }}"
+                        href="{{ env('APP_URL') }}/properties"
                         class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal"
                     >
-                        Dashboard
+                        Properties
                     </a>
                 @else
                     <a
-                        href="{{ route('login') }}"
+                        href="{{ env('APP_URL') }}/login"
                         class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] text-[#1b1b18] border border-transparent hover:border-[#19140035] dark:hover:border-[#3E3E3A] rounded-sm text-sm leading-normal"
                     >
                         Log in
@@ -35,7 +35,7 @@
 
                     @if (Route::has('register'))
                         <a
-                            href="{{ route('register') }}"
+                            href="{{ env('APP_URL') }}/register"
                             class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal"
                         >
                             Register
@@ -57,7 +57,7 @@
 
                 <div class="flex flex-col gap-y-4 mb-4 lg:mb-6 items-center">
                     <div>
-                        <a href="{{ route('listings.index') }}"
+                        <a href="{{ env('APP_URL') }}/listings"
                         class="inline-block dark:bg-[#eeeeec] dark:border-[#eeeeec] dark:text-[#1C1C1A] dark:hover:bg-white dark:hover:border-white hover:bg-black hover:border-black px-5 py-2 bg-[#1b1b18] rounded-sm border border-black text-white text-sm leading-normal font-medium transition-colors">
                             Browse Listings
                         </a>
@@ -65,7 +65,7 @@
                     <div>
                         <span>
                             Or
-                            <a href="{{ route('about') }}"
+                            <a href="{{ env('APP_URL') }}/about"
                             class="inline-flex items-center space-x-1 font-medium underline underline-offset-4 text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 ml-1">
                                 <span>Learn More About Us</span>
                             </a>

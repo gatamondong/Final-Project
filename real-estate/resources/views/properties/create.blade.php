@@ -1,6 +1,6 @@
 <x-app-layout>
     <div class="p-6 max-w-xl mx-auto">
-        <form method="POST" action="{{ route('properties.store') }}" enctype="multipart/form-data">
+        <form method="POST" action="{{ env('APP_URL') }}/properties/store" enctype="multipart/form-data">
             @csrf
             <input name="title" placeholder="Title" class="w-full p-2 border mb-2 rounded" required />
             <textarea name="description" placeholder="Description" class="w-full p-2 border mb-2 rounded" required></textarea>
