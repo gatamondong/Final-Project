@@ -63,4 +63,10 @@ class PropertyController extends Controller
         $property->delete();
         return redirect()->route('properties.index');
     }
+
+    public function show(Property $property)
+        {
+            return view('properties.show', compact('property'));
+        }
+
 }
