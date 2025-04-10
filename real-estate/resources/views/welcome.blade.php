@@ -11,7 +11,7 @@
     <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
 
     <!-- Styles Scripts-->
-    <link rel="stylesheet" href="{{ env('APP_URL') }}/build/assets/app-B4Qi55n8.css">
+    <link rel="stylesheet" href="{{ env('APP_URL') }}/build/assets/app-q8MmvJsX.css">
     <script src="{{ env('APP_URL') }}/build/assets/app-Bo-u61x1.js"></script>
 </head>
 <body class="bg-[#FDFDFC] dark:bg-[#0a0a0a] text-[#1b1b18] flex p-6 lg:p-8 items-center lg:justify-center min-h-screen flex-col">

@@ -12,7 +12,7 @@
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
         <!-- Scripts -->
-        <link rel="stylesheet" href="{{ env('APP_URL') }}/build/assets/app-B4Qi55n8.css">
+        <link rel="stylesheet" href="{{ env('APP_URL') }}/build/assets/app-q8MmvJsX.css">
         <script src="{{ env('APP_URL') }}/build/assets/app-Bo-u61x1.js"></script>
     </head>
     <body class="font-sans antialiased">
