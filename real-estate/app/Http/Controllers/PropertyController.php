@@ -4,62 +4,63 @@ namespace App\Http\Controllers;
 
 use App\Models\Property;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PropertyController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
+    public function index() {
+        $properties = Property::latest()->get();
+        return view('properties.index', compact('properties'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+    public function create() {
+        return view('properties.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
+    public function store(Request $request) {
+        $data = $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'price' => 'required|numeric',
+            'location' => 'required',
+            'image' => 'image|nullable|max:2048',
+        ]);
+
+        if ($request->hasFile('image')) {
+            $data['image'] = $request->file('image')->store('properties', 'public');
+        }
+
+        Property::create($data);
+        return redirect()->route('properties.index');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Property $property)
-    {
-        //
+    public function edit(Property $property) {
+        return view('properties.edit', compact('property'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Property $property)
-    {
-        //
+    public function update(Request $request, Property $property) {
+        $data = $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'price' => 'required|numeric',
+            'location' => 'required',
+            'image' => 'image|nullable|max:2048',
+        ]);
+
+        if ($request->hasFile('image')) {
+            Storage::disk('public')->delete($property->image);
+            $data['image'] = $request->file('image')->store('properties', 'public');
+        }
+
+        $property->update($data);
+        return redirect()->route('properties.index');
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Property $property)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Property $property)
-    {
-        //
+    public function destroy(Property $property) {
+        if ($property->image) {
+            Storage::disk('public')->delete($property->image);
+        }
+        $property->delete();
+        return redirect()->route('properties.index');
     }
 }
