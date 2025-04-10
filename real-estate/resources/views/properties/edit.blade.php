@@ -1,6 +1,7 @@
 <x-app-layout>
     <div class="p-6 max-w-xl mx-auto">
-        <form method="POST" action="{{ route('properties.update', $property) }}" enctype="multipart/form-data">
+    {{ env('APP_URL') }}/properties/update . $property
+        <form method="POST" action="{{ env('APP_URL') }}/properties/update . $property" enctype="multipart/form-data">
             @csrf @method('PUT')
             <input name="title" value="{{ $property->title }}" class="w-full p-2 border mb-2 rounded" required />
             <textarea name="description" class="w-full p-2 border mb-2 rounded" required>{{ $property->description }}</textarea>
